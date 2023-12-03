@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Website</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!--font awesome cdn link-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!--custom css file link -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- header section start -->
+
+    <!-- header section start -->
+    <header>
+      <a href="#" class="logo"><i class="fas fa-utensils"></i>Resto</a>
+
+      <nav class="navbar">
+        <a class="active" href="#Home">home</a>
+        <a href="Dishes.html">dishes</a>
+        <a href="About.html">about</a>
+        <a href="Menu.html">menu</a>
+        <a href="Review.html">review</a>
+        <a href="Order.html">order</a>
+      </nav>
+
+      <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-heart"></a>
+      </div>
+    </header>
+    <!-- header section ends -->
+
+    <!--search form -->
+    <form action="" id="search-form">
+      <input
+        type="search"
+        placeholder="search here....."
+        name=""
+        id="search-box"
+      />
+      <label for="search-box" class="fas fa-search"></label>
+      <i class="fas fa-times" id="close"></i>
+    </form>
+
+    <!-- home section starts -->
+
+    <section class="home" id="Home">
+      <div class="swiper-container home-slider">
+        <div class="swiper-wrapper wrapper">
+          <div class="swiper-slide slide">
+            <div class="content">
+              <span>our special dish</span>
+              <h3>spicy noodles</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sapiente ducimus perferendis incidunt?
+              </p>
+              <a href="#" class="btn">Order now</a>
+            </div>
+            <div class="image">
+              <img src="image/mie-removebg-preview.png" alt="" />
+            </div>
+          </div>
+
+          <div class="swiper-slide slide">
+            <div class="content">
+              <span>our special dish</span>
+              <h3>Crispy fried chicken</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sapiente ducimus perferendis incidunt?
+              </p>
+              <a href="#" class="btn">Order now</a>
+            </div>
+            <div class="image">
+              <img src="image/toppng.png" alt="" />
+            </div>
+          </div>
+
+          <div class="swiper-slide slide">
+            <div class="content">
+              <span>our special dish</span>
+              <h3>Burger</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Sapiente ducimus perferendis incidunt?
+              </p>
+              <a href="#" class="btn">Order now</a>
+            </div>
+            <div class="image">
+              <img src="image/burger-removebg-preview.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <!-- home section ends -->
+
+
+
+
+
+
+
+
+
+
+    <!-- section footer ends -->
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- custom js file -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let menu = document.querySelector("#menu-bars");
+        let navbar = document.querySelector(".navbar");
+
+        menu.onclick = () => {
+          menu.classList.toggle("fa-times");
+          navbar.classList.toggle("active");
+        };
+
+        window.onscroll = () => {
+          menu.classList.remove("fa-times");
+          navbar.classList.remove("active");
+        };
+
+        document.querySelector("#search-icon").onclick = () => {
+          document.querySelector("#search-form").classList.toggle("active");
+        };
+
+        document.querySelector("#close").onclick = () => {
+          document.querySelector("#search-form").classList.remove("active");
+        };
+      });
+      var homeSwiper = new Swiper(".home-slider", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 7500,
+          disableOnInteraction: false,
+        },  
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        loop: true,
+      });
+      var swiperReview = new Swiper(".swiper-container-review-slider", {
+  spaceBetween: 20,
+  centeredSlides: true,
+  autoplay: {
+    delay: 7500,
+    disableOnInteraction: false,
+  },
+  loop: true,
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    640: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // ... (kode sebelumnya)
+
+  const boxes = document.querySelectorAll('.Dishes .box');
+
+  boxes.forEach(box => {
+    box.addEventListener('click', function () {
+      this.classList.add('moveUp');
+
+      this.addEventListener('animationend', () => {
+        this.classList.remove('moveUp');
+      });
+    });
+  });
+});
+
+    </script>
+  </body>
+</html>
